@@ -64,10 +64,10 @@ func ==(lhs: Trilean, rhs: Trilean) -> Bool {
 }
 
 func &&(lhs: Trilean, rhs: Trilean) -> Trilean {
-    if (lhs == no || rhs == no) {
+    if lhs == no || rhs == no {
         return no
     }
-    else if (lhs == maybe || rhs == maybe) {
+    else if lhs == maybe || rhs == maybe {
         return maybe
     }
     else {
@@ -76,10 +76,10 @@ func &&(lhs: Trilean, rhs: Trilean) -> Trilean {
 }
 
 func ||(lhs: Trilean, rhs: Trilean) -> Trilean {
-    if (lhs == yes || rhs == yes) {
+    if lhs == yes || rhs == yes {
         return yes
     }
-    else if (lhs == maybe || rhs == maybe) {
+    else if lhs == maybe || rhs == maybe {
         return maybe
     }
     else {
@@ -88,10 +88,10 @@ func ||(lhs: Trilean, rhs: Trilean) -> Trilean {
 }
 
 prefix func !(trilean: Trilean) -> Trilean {
-    if (trilean == yes) {
+    if trilean == yes {
         return no
     }
-    else if (trilean == no) {
+    else if trilean == no {
         return yes
     }
     else {
@@ -100,19 +100,19 @@ prefix func !(trilean: Trilean) -> Trilean {
 }
 
 func sure(trilean: Trilean, closure: () -> ()) {
-    if(trilean == yes) {
+    if trilean == yes {
         closure()
     }
 }
 
 func sureNot(trilean: Trilean, closure: () -> ()) {
-    if(trilean == no) {
+    if trilean == no {
         closure()
     }
 }
 
 func unsure(trilean: Trilean, closure: () -> ()) {
-    if(trilean == maybe) {
+    if trilean == maybe {
         closure()
     }
 }
