@@ -38,13 +38,13 @@ struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
     }
     
     var description: String {
-    switch value {
-    case .Yes:
-        return "yes"
-    case .No:
-        return "no"
-    default:
-        return "maybe"
+        switch value {
+        case .Yes:
+            return "yes"
+        case .No:
+            return "no"
+        default:
+            return "maybe"
         }
     }
     
