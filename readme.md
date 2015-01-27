@@ -93,4 +93,4 @@ The result of conjunction, disjunction and negation are implemented according to
 | **no**       | yes          |
 
 ### License
-Copyright © 2014 [@phelgo](https://twitter.com/phelgo). [MIT licensed](http://www.opensource.org/licenses/MIT) to you.
+Copyright © 2014-2015 [@phelgo](https://twitter.com/phelgo). [MIT licensed](http://www.opensource.org/licenses/MIT) to you.

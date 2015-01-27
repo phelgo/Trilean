@@ -3,7 +3,7 @@
 //  Three-valued logic for Swift
 //  Trilean.swift
 //
-//  Copyright (c) 2014 @phelgo. MIT licensed to you.
+//  Copyright (c) 2014-2015 @phelgo. MIT licensed to you.
 //
 
 private enum TrileanValue {
