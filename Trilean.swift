@@ -18,8 +18,8 @@ struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
         value = trileanValue
     }
     
-    static func convertFromBooleanLiteral(value: Bool) -> Trilean {
-        return value ? Trilean(.Yes) : Trilean(.No)
+    init(booleanLiteral value: BooleanLiteralType) {
+        self.value = value ? .Yes : .No
     }
     
     var boolValue: Bool {
