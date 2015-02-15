@@ -12,7 +12,6 @@ private enum TrileanValue {
 
 public struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
     private var value = TrileanValue.Maybe
-    private var optimistic = false;
     
     private init(_ trileanValue: TrileanValue) {
         value = trileanValue
@@ -23,17 +22,11 @@ public struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printa
     }
     
     public var boolValue: Bool {
-        switch (value, optimistic) {
-        case (.Yes, _):
-            return true
-        case (.No, _):
-            return false
-        case (.Maybe, false):
-            return false
-        case (.Maybe, true):
+        switch value {
+        case .Yes:
             return true
         default:
-            return true
+            return false
         }
     }
     
@@ -49,9 +42,7 @@ public struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printa
     }
     
     public var optimistically: Trilean {
-        var trilean = self
-        trilean.optimistic = true
-        return trilean
+        return self == maybe ? yes : self
     }
 }
 
