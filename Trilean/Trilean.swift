@@ -10,7 +10,7 @@ private enum TrileanValue {
     case Yes, No, Maybe
 }
 
-struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
+public struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
     private var value = TrileanValue.Maybe
     private var optimistic = false;
     
@@ -18,11 +18,11 @@ struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
         value = trileanValue
     }
     
-    init(booleanLiteral value: BooleanLiteralType) {
+    public init(booleanLiteral value: BooleanLiteralType) {
         self.value = value ? .Yes : .No
     }
     
-    var boolValue: Bool {
+    public var boolValue: Bool {
         switch (value, optimistic) {
         case (.Yes, _):
             return true
@@ -37,7 +37,7 @@ struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
         }
     }
     
-    var description: String {
+    public var description: String {
         switch value {
         case .Yes:
             return "yes"
@@ -48,22 +48,22 @@ struct Trilean: BooleanType, BooleanLiteralConvertible, Equatable, Printable {
         }
     }
     
-    var optimistically: Trilean {
+    public var optimistically: Trilean {
         var trilean = self
         trilean.optimistic = true
         return trilean
     }
 }
 
-let yes = Trilean(.Yes)
-let no = Trilean(.No)
-let maybe = Trilean(.Maybe)
+public let yes = Trilean(.Yes)
+public let no = Trilean(.No)
+public let maybe = Trilean(.Maybe)
 
-func ==(lhs: Trilean, rhs: Trilean) -> Bool {
+public func ==(lhs: Trilean, rhs: Trilean) -> Bool {
     return lhs.value == rhs.value
 }
 
-func &&(lhs: Trilean, rhs: Trilean) -> Trilean {
+public func &&(lhs: Trilean, rhs: Trilean) -> Trilean {
     if lhs == no || rhs == no {
         return no
     }
@@ -75,7 +75,7 @@ func &&(lhs: Trilean, rhs: Trilean) -> Trilean {
     }
 }
 
-func ||(lhs: Trilean, rhs: Trilean) -> Trilean {
+public func ||(lhs: Trilean, rhs: Trilean) -> Trilean {
     if lhs == yes || rhs == yes {
         return yes
     }
@@ -87,7 +87,7 @@ func ||(lhs: Trilean, rhs: Trilean) -> Trilean {
     }
 }
 
-prefix func !(trilean: Trilean) -> Trilean {
+public prefix func !(trilean: Trilean) -> Trilean {
     if trilean == yes {
         return no
     }
@@ -99,19 +99,19 @@ prefix func !(trilean: Trilean) -> Trilean {
     }
 }
 
-func sure(trilean: Trilean, closure: () -> ()) {
+public func sure(trilean: Trilean, closure: () -> ()) {
     if trilean == yes {
         closure()
     }
 }
 
-func sureNot(trilean: Trilean, closure: () -> ()) {
+public func sureNot(trilean: Trilean, closure: () -> ()) {
     if trilean == no {
         closure()
     }
 }
 
-func unsure(trilean: Trilean, closure: () -> ()) {
+public func unsure(trilean: Trilean, closure: () -> ()) {
     if trilean == maybe {
         closure()
     }
