@@ -92,5 +92,12 @@ The result of conjunction, disjunction and negation are implemented according to
 | **maybe**    | maybe        |
 | **no**       | yes          |
 
+### Installation
+Using [CocoaPods](http://cocoapods.org) 0.36 or above, add Trilean to your podfile:
+
+```
+pod 'Trilean'
+```
+
 ### License
 Copyright © 2014-2015 [@phelgo](https://twitter.com/phelgo). [MIT licensed](http://www.opensource.org/licenses/MIT) to you.
