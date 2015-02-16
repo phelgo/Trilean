@@ -15,8 +15,8 @@ var maybeTrilean = maybe
 As a convenience, trileans can also be initialized from booleans.
 
 ```swift
-var yesTrilean = Trilean(true)
-var noTrilean = Trilean(false)
+var yesTrilean: Trilean = true
+var noTrilean: Trilean = false
 ```
 
 ### Control Flow - Sure Statements
@@ -39,7 +39,7 @@ unsure(myTrilean) {
 You can use trileans almost everywhere you would use booleans, including if statements.
 
 ```swift
-if (myTrilean) {
+if myTrilean {
     // perform the yes case
 }
 else {
@@ -49,7 +49,7 @@ else {
 By default only the *yes* trilean is converted to *true* and both *no* and *maybe* are converted to *false*. You can however make an optimistic conversion where the *maybe* trilean will be converted to *true*.
 
 ```swift
-if (myTrilean.optimistically) {
+if myTrilean.optimistically {
     // perform the yes or maybe case
 }
 else {
